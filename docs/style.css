@@ -186,7 +186,12 @@ body.product { max-width: 980px; }
 .button.primary:hover { opacity: 0.9; color: var(--paper); }
 
 .dial { margin: 0; text-align: center; }
-.dial svg { width: 100%; max-width: 380px; height: auto; }
+.dial img {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  border-radius: 14px;
+}
 .dial figcaption { color: var(--soft); font-size: 13px; margin-top: 6px; }
 
 .product h2 { margin-top: 44px; }
@@ -236,6 +241,27 @@ body.product { max-width: 980px; }
 @media (max-width: 520px) {
   .keys { grid-template-columns: 1fr; }
   .keys dd { margin-bottom: 8px; }
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 16px;
+}
+
+.gallery figure { margin: 0; }
+
+.gallery img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.gallery figcaption {
+  color: var(--soft);
+  font-size: 14px;
+  margin-top: 8px;
 }
 
 #know ul { padding-left: 20px; }
