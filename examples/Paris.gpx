@@ -1,134 +1,66 @@
-
-<html>
-  <head>
-  </head>
-  <body>
-    <gpx creator="Sports Tracker" version="1.1" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemalocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
-      <metadata>
-        <name>
-          Paris
-        </name>
-      </metadata>
-      <wpt lat="48.85895" lon="2.2933617">
-        <ele>
-          36.0
-        </ele>
-        <name>
-          Begin
-        </name>
-        <desc>
-          Auto-generated
-        </desc>
-        <type>
-          Begin
-        </type>
-      </wpt>
-      <wpt lat="48.85951" lon="2.2927585">
-        <ele>
-          28.32
-        </ele>
-        <name>
-          Iéna
-        </name>
-        <type>
-          Waypoint
-        </type>
-      </wpt>
-      <wpt lat="48.86293" lon="2.3016956">
-        <ele>
-          31.82
-        </ele>
-        <name>
-          Alma
-        </name>
-        <type>
-          Waypoint
-        </type>
-      </wpt>
-      <wpt lat="48.86307" lon="2.3104403">
-        <ele>
-          28.82
-        </ele>
-        <name>
-          Invalides
-        </name>
-        <type>
-          Waypoint
-        </type>
-      </wpt>
-      <wpt lat="48.863136" lon="2.3134966">
-        <ele>
-          29.27
-        </ele>
-        <name>
-          Alexandre III
-        </name>
-        <type>
-          Waypoint
-        </type>
-      </wpt>
-      <wpt lat="48.862793" lon="2.3191545">
-        <ele>
-          30.81
-        </ele>
-        <name>
-          Concorde
-        </name>
-        <type>
-          Waypoint
-        </type>
-      </wpt>
-      <wpt lat="48.865486" lon="2.3211215">
-        <ele>
-          33.0
-        </ele>
-        <name>
-          End
-        </name>
-        <desc>
-          Auto-generated
-        </desc>
-        <type>
-          End
-        </type>
-      </wpt>
-      <rte>
-        <rtept lat="48.85895" lon="2.2933617">
-          <ele>
-            36.0
-          </ele>
-        </rtept>
-        <rtept lat="48.85951" lon="2.2927585">
-          <ele>
-            28.32
-          </ele>
-        </rtept>
-        <rtept lat="48.86293" lon="2.3016956">
-          <ele>
-            31.82
-          </ele>
-        </rtept>
-        <rtept lat="48.86307" lon="2.3104403">
-          <ele>
-            28.82
-          </ele>
-        </rtept>
-        <rtept lat="48.863136" lon="2.3134966">
-          <ele>
-            29.27
-          </ele>
-        </rtept>
-        <rtept lat="48.862793" lon="2.3191545">
-          <ele>
-            30.81
-          </ele>
-        </rtept>
-        <rtept lat="48.865486" lon="2.3211215">
-          <ele>
-            33.0
-          </ele>
-        </rtept>
-      </rte>
-    </gpx>
-  </body>
-</html>
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" creator="Sports Tracker" version="1.1" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+  <metadata>
+    <name>Paris</name>
+  </metadata>
+  <wpt lat="48.85895" lon="2.2933617">
+    <ele>36.0</ele>
+    <name>Begin</name>
+    <desc>Auto-generated</desc>
+    <type>Begin</type>
+  </wpt>
+  <wpt lat="48.85951" lon="2.2927585">
+    <ele>28.32</ele>
+    <name>Iena</name>
+    <type>Waypoint</type>
+  </wpt>
+  <wpt lat="48.86293" lon="2.3016956">
+    <ele>31.82</ele>
+    <name>Alma</name>
+    <type>Waypoint</type>
+  </wpt>
+  <wpt lat="48.86307" lon="2.3104403">
+    <ele>28.82</ele>
+    <name>Invalides</name>
+    <type>Waypoint</type>
+  </wpt>
+  <wpt lat="48.863136" lon="2.3134966">
+    <ele>29.27</ele>
+    <name>Alexandre III</name>
+    <type>Waypoint</type>
+  </wpt>
+  <wpt lat="48.862793" lon="2.3191545">
+    <ele>30.81</ele>
+    <name>Concorde</name>
+    <type>Waypoint</type>
+  </wpt>
+  <wpt lat="48.865486" lon="2.3211215">
+    <ele>33.0</ele>
+    <name>End</name>
+    <desc>Auto-generated</desc>
+    <type>End</type>
+  </wpt>
+  <rte>
+    <rtept lat="48.85895" lon="2.2933617">
+      <ele>36.0</ele>
+    </rtept>
+    <rtept lat="48.85951" lon="2.2927585">
+      <ele>28.32</ele>
+    </rtept>
+    <rtept lat="48.86293" lon="2.3016956">
+      <ele>31.82</ele>
+    </rtept>
+    <rtept lat="48.86307" lon="2.3104403">
+      <ele>28.82</ele>
+    </rtept>
+    <rtept lat="48.863136" lon="2.3134966">
+      <ele>29.27</ele>
+    </rtept>
+    <rtept lat="48.862793" lon="2.3191545">
+      <ele>30.81</ele>
+    </rtept>
+    <rtept lat="48.865486" lon="2.3211215">
+      <ele>33.0</ele>
+    </rtept>
+  </rte>
+</gpx>

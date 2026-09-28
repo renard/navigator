@@ -138,9 +138,9 @@ sits. What it expects to find:
 - `packer/` the converter: a Go module holding the packing rules, a
   command line tool, and the same code built to WebAssembly for the
   page.
-- `examples/` a few real VFR routes as GPX, which is what the
-  packaged `data.json` is built from, so a fresh clone flies
-  something without anybody having to plan a trip first.
+- `examples/` a few real VFR routes as GPX, to try the converter
+  with. The app itself ships with no route: `watch/data.json` is
+  blank, and each user brings their own.
 - `docs/` what GitHub Pages serves: the presentation page,
   `index.html`, and the converter, `convert.html`.
   Its `navigator.wasm` is built by `make site` from `packer/`.

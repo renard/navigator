@@ -33,7 +33,7 @@
   <wpt lat="48.778328625197" lon="1.6853836862861">
     <ele>609.6</ele>
     <magvar>1.89</magvar>
-    <name>NAV Étangs d’Yveline</name>
+    <name>NAV Etangs d'Yveline</name>
     <extensions>
       <cross>VORD|EPR|115.65|48.625689|1.656567</cross>
       <notes/>
@@ -214,7 +214,7 @@
     <rtept lat="48.778328625197" lon="1.6853836862861">
       <ele>609.6</ele>
       <magvar>1.89</magvar>
-      <name>NAV Étangs d’Yveline</name>
+      <name>NAV Etangs d'Yveline</name>
       <extensions>
         <cross>VORD|EPR|115.65|48.625689|1.656567</cross>
         <notes/>

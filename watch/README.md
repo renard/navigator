@@ -255,9 +255,10 @@ even when it is blank: the slot is sized by what it holds, not by the
 declared maximum, and two earlier builds that shipped nothing or an
 empty string read back nothing at all.
 
-What it ships with are the routes in `../examples`, so a fresh clone
-flies something without anybody having to plan a trip first. Replace
-them with your own, which is the whole point of the converter:
+It ships blank, since every user brings their own routes. Without
+any, the app follows the watch's own navigation, as with the `--`
+choice. To build it with routes, pack your GPX files into it, or the
+ones in `../examples` to try it:
 
 ```
 $ cd ../packer && make
