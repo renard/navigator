@@ -1,0 +1,443 @@
+<uiView onLoad="
+  var deviationRad = null;
+  var seenDeviation = 0;
+
+  // The waypoint name comes from main.js, which knows both the stored
+  // route and what the watch is saying, so the screen never reads it
+  // from the watch itself.
+
+  // Layout of the packed status output. Keep in step with main.js,
+  // which declares the same.
+  var FLAG_SOURCE_LIVE = 1;
+
+  // Seconds as h:mm once past the hour, mm:ss below it. A leg is
+  // minutes, a whole route can be hours.
+  function shortTime(s) {
+    if (s === undefined || s === null || s < 0) return '--';
+    var total = Math.round(s);
+    var h = Math.floor(total / 3600);
+    var m = Math.floor((total - h * 3600) / 60);
+    var r = total - h * 3600 - m * 60;
+    if (h > 99) return '--';
+    if (h > 0) return h + ':' + (m < 10 ? '0' + m : m);
+    return m + ':' + (r < 10 ? '0' + r : r);
+  }
+
+  // A moment in the future as a time of day, hh:mm.
+  //
+  // The clock is read in seconds, and in milliseconds on some builds,
+  // so an absurdly large number is taken as the latter. Only the time
+  // of day is wanted, hence the remainder over a day.
+  function clockIn(now, ahead) {
+    if (now === undefined || now === null) return '--';
+    if (ahead === undefined || ahead === null) return '--';
+    var t = now;
+    if (t > 1e10) t = t / 1000;
+    t = Math.floor(t + ahead) % 86400;
+    if (t < 0) return '--';
+    var h = Math.floor(t / 3600);
+    var m = Math.floor((t - h * 3600) / 60);
+    return h + ':' + (m < 10 ? '0' + m : m);
+  }
+
+  // The deviation ring.
+  //
+  // The triangle sits on the bezel at the angle between the current
+  // ground track and the waypoint, so keeping it at the top of the
+  // dial flies the leg. It is filled while the bearing is trusted and
+  // drawn as an outline when there is none, because the app must not
+  // show a confident arrow it cannot justify.
+  function doBuildRing(ctx) {
+    var cx = ctx.width / 2;
+    var cy = ctx.height / 2;
+    var r = Math.min(ctx.width, ctx.height) / 2 - 22;
+
+    ctx.strokeStyle = '#444444';
+    ctx.lineWidth = 4;
+    ctx.beginPath();
+    ctx.arc(cx, cy, r, 0, 2 * Math.PI);
+    ctx.stroke();
+
+    var angle = deviationRad === null ? 0 : deviationRad;
+
+    // Radial unit vector at the deviation angle, and its
+    // perpendicular, to build a triangle pointing outward, toward
+    // where the waypoint is.
+    var ux = Math.sin(angle), uy = -Math.cos(angle);
+    var vx = Math.cos(angle), vy = Math.sin(angle);
+    var tipX = cx + (r + 20) * ux, tipY = cy + (r + 20) * uy;
+    var aX = cx + (r - 18) * ux + 15 * vx;
+    var aY = cy + (r - 18) * uy + 15 * vy;
+    var bX = cx + (r - 18) * ux - 15 * vx;
+    var bY = cy + (r - 18) * uy - 15 * vy;
+
+    ctx.beginPath();
+    ctx.moveTo(tipX, tipY);
+    ctx.lineTo(aX, aY);
+    ctx.lineTo(bX, bY);
+    ctx.closePath();
+
+    if (deviationRad === null) {
+      ctx.strokeStyle = '#666666';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+      return;
+    }
+    var deg = Math.abs(deviationRad) * 180 / Math.PI;
+    ctx.fillStyle = deg <= 10 ? '#00FF00' : '#FF0000';
+    ctx.fill();
+  }
+
+  // Events sent to main.js. Keep in step with main.js, which declares
+  // the same.
+  var EVENT_NEXT_ROUTE = 1;
+  var EVENT_OPEN_ROUND = 4;
+  var EVENT_PREV_ROUTE = 5;
+
+  // How long the banner stays after the last press, in milliseconds.
+  // Long enough to read the name and hold the button again for the
+  // two seconds a long press takes.
+  var BANNER_MS = 5000;
+
+  // While the banner is up the pilot is choosing, and every press
+  // belongs to the same round. So the banner is the round, and the
+  // pilot can see when it ends.
+  var bannerUp = 0;
+
+  // Counts the raisings, so a timer set by an earlier one can tell it
+  // has been overtaken. Without it the first press of two in quick
+  // succession lowered the banner of the second.
+  var bannerGen = 0;
+
+  // Raise the route banner and set one timer to lower it.
+  //
+  // A press is what calls this, not the tick, so it works standing
+  // still on the apron, which is exactly where a route gets chosen.
+  // The name is a moment behind the press: main.js writes it when the
+  // event reaches it, so the banner waits a little before appearing
+  // rather than showing the route that was selected before.
+  //
+  // One timer per raising and never a chain: a timer lowers the
+  // banner or does nothing, and never sets another.
+  function showRoute() {
+    bannerGen += 1;
+    bannerUp = 1;
+    var mine = bannerGen;
+    setTimeout(function () {
+      setStyle('#routeBanner', 'visibility', 'VISIBLE');
+    }, 300);
+    setTimeout(function () {
+      if (mine !== bannerGen) return;
+      bannerUp = 0;
+      setStyle('#routeBanner', 'visibility', 'HIDDEN');
+    }, 300 + BANNER_MS);
+  }
+
+  // Set while the hold under way is the one that opened the round, so
+  // its release does not also step. Every hold sets it afresh when it
+  // begins, which is what clears it after a hold let go early.
+  var openingHold = 0;
+
+  // A hold has begun, and it takes two seconds before it counts as a
+  // press. Show the route being followed at once. A new round opens
+  // only when none is running, which is what the banner being down
+  // says.
+  // Set from the moment a hold begins until a little after it ends,
+  // and while it is set a click is not a click. The release of a hold
+  // was seen to step the route as well, which is what a click arriving
+  // with the banner up would do. The reference does not say whether a
+  // release also sends one, so a click is refused on both sides of it.
+  var holding = 0;
+
+  // Lower the flag once the release has had time to deliver whatever
+  // it sends. No new hold can begin sooner, since one takes 0.6 s.
+  function holdEnded() {
+    setTimeout(function () {
+      holding = 0;
+    }, 300);
+  }
+
+  function holdStarted() {
+    holding = 1;
+    openingHold = bannerUp ? 0 : 1;
+    if (openingHold) {
+      $.put('/Zapp/{zapp_index}/Event', EVENT_OPEN_ROUND, null, 'int32');
+    }
+    showRoute();
+  }
+
+  function stepRoute(eventId) {
+    $.put('/Zapp/{zapp_index}/Event', eventId, null, 'int32');
+    showRoute();
+  }
+
+  // A hold that opened the round has done its work by showing the
+  // route. Any later one goes back a route, as holding the up button
+  // goes back a waypoint.
+  function holdDone() {
+    holdEnded();
+    if (openingHold) {
+      openingHold = 0;
+      showRoute();
+      return;
+    }
+    stepRoute(EVENT_PREV_ROUTE);
+  }
+
+  // A lap with its popup and notification, the kind the button makes
+  // on its own.
+  var LAP_MANUAL = 0;
+
+  // A click steps the route while the banner is up, and is a lap
+  // otherwise.
+  //
+  // The watch cannot hand a click over only some of the time: once
+  // the handler is declared every click comes here, laps included. So
+  // the lap is made here, the way the watch's own lap view makes one,
+  // with a put to Activity/Trigger. A click while the banner is up is
+  // a step and not a lap, which is the price of the shortcut.
+  function clicked() {
+    if (holding) {
+      return;
+    }
+    if (bannerUp) {
+      stepRoute(EVENT_NEXT_ROUTE);
+      return;
+    }
+    $.put('/Activity/Trigger', LAP_MANUAL);
+  }
+
+  // The startup announcement stands down on its own, unless a press
+  // has taken it over since. It does not count as a round, so the
+  // first hold opens one.
+  setTimeout(function () {
+    if (bannerGen !== 0) return;
+    setStyle('#routeBanner', 'visibility', 'HIDDEN');
+  }, 15000);
+
+  // One tick of the screen, called by the waypoint's time to run.
+  //
+  // Two things here cannot be bound with <eval>: the ring, which a
+  // canvas never refreshes by itself, and the arrival times, which
+  // need the clock and a duration together.
+  //
+  // What drives it is the one field on this screen that changes every
+  // second, the time to run in minutes and seconds. An earlier build
+  // used the activity duration instead, in an element parked off the
+  // edge of the dial where the round glass could not show it. That
+  // worked, and was a thing nobody could explain on reading the file.
+  //
+  // The tick stops while the aircraft is stopped, because the time to
+  // run is only published above walking pace. Nothing on this screen
+  // moves then either: the position and the waypoint name are written
+  // by main.js on its own pass, and the clock binds itself.
+  //
+  // Driving this from a setTimeout chain of our own was tried, and
+  // the chain stops after about forty seconds, freezing the screen
+  // while it still looks alive.
+  function onTick() {
+    try {
+      if (!seenDeviation) {
+        deviationRad = null;
+      }
+      seenDeviation = 0;
+
+      $.get('/Zapp/{zapp_index}/Output/deviationRad', function(v) {
+        if (v === undefined || v === null) return;
+        seenDeviation = 1;
+        deviationRad = v;
+      });
+      $.get('/Dev/Time/LocalTime', function(now) {
+        $.get('/Zapp/{zapp_index}/Output/legEteS', function(ete) {
+          setText('#etaWpt', clockIn(now, ete));
+        });
+        $.get('/Zapp/{zapp_index}/Output/destEteS', function(ete) {
+          setText('#etaDest', clockIn(now, ete));
+        });
+      });
+      control('#ring', 'REFRESH');
+    } catch (e) {
+      // A throw here would take the whole tick with it.
+    }
+  }
+  ">
+  <object type="canvas" id="ring"
+    build="ctx => doBuildRing(ctx)"
+    style="position:absolute; left:0; top:0; width:100%; height:100%;" />
+
+  <!-- The rows sit 15% right of the canvas center, where the left
+       column is clear of the bezel. Labels and values get separate
+       divs because the engine renders <eval> as a block, so a label
+       and its value in one div stack into two lines.
+
+       The name, the distance and the position are centred on the
+       dial instead. They are single readings rather than a label and
+       a value, and the widest line on the screen is a coordinate,
+       which the offset would push into the bezel.
+
+       Colour says what a figure is about, in Suunto's own classes:
+       cyan for the next waypoint, its name, its distance and its row,
+       dark orange for the destination, in the route banner's family
+       but well clear of the clock's yellow, and white
+       for the aircraft itself. The clock is yellow and bold. Green and
+       red are left to the deviation marker alone.
+
+       Bold is a font on the watch, not a weight: font-weight is not
+       honoured on an <eval>, and at 22 the display has only its
+       regular face. 25 is the first step of the digit fonts, drawn in
+       SuuntoUINextDisplayBold, the face of the watch's own timers,
+       and a time is digits and a colon only.
+
+       That face sits higher in its line than the 22 beside it. At the
+       row's own 45% the clock stood 7 to 16 pixels above the speed and
+       touched the D row, so it is placed 2% lower, 9 pixels, to line
+       up with the S row again, and the position below moves down 1%
+       to leave its line box room. A colour is given
+       as a class on the div around an <eval>, the way Suunto's
+       templates colour theirs: an inline colour was seen not to reach
+       an <eval>. -->
+
+  <!-- Sizes are not free, and neither is height.
+
+       A size is rounded up to the next step of the engine's ladder,
+       14, 15, 18, 19, 22, 25, 28, 35, 42, 50, 57, 65, and the steps
+       from 25 on are fonts of digits alone. A letter landing on one
+       of those is drawn as a small circle: a name asked for at 24
+       came back as eight of them. Anything with a letter in it
+       therefore stops at 28.
+
+       A line is also more than twice as tall as its size, 46 for 22
+       and 58 for 28, so seven lines at 22 would need more dial than
+       there is. The sizes below are what fits between five percent
+       and the three quarter mark, where the watch starts drawing its
+       own banners over whatever is there.
+
+       All of it is in panel pixels, the dial being 466 across, which
+       the ring measures out: its radius is half the canvas less 22
+       and the marker's tip stands 20 beyond it, so one photo of the
+       watch gives the scale. -->
+  <div id="wptName" class="c-cyan" style="position:absolute; top:5%;
+    left:0%; width:100%; text-align:center; font-size:19px;">--</div>
+
+  <div class="c-cyan" style="position:absolute; top:13%; left:0%;
+    width:100%; text-align:center; font-size:28px;">
+    <eval input="/Zapp/{zapp_index}/Output/legDistM" default="--"
+      outputFormat="script x => (x / 1852).toFixed(1) + ' NM'" />
+  </div>
+
+  <!-- Time to run and time of arrival, for the waypoint on the first
+       row and for the end of the route on the second. Both distances
+       come from the stored route, so neither row needs the watch to
+       still be talking about the navigation.
+
+       W is the waypoint, D the destination, S the aircraft. The
+       columns hold the widest thing that can land in them, 88:88 and
+       188kt, because a value one pixel too wide for its box does not
+       shrink or spill, it wraps, and the second line lands on the
+       row below looking like a stray digit. -->
+  <div class="c-cyan" style="position:absolute; top:25%; left:18%;
+    width:9%; text-align:center; font-size:22px;">W</div>
+  <div class="c-cyan" style="position:absolute; top:25%; left:28%;
+    width:24%; text-align:left; font-size:22px;">
+    <eval input="/Zapp/{zapp_index}/Output/legEteS" default="--"
+      outputFormat="script x => shortTime(x)" onValueChanged="onTick();" />
+  </div>
+  <div id="etaWpt" class="c-cyan" style="position:absolute; top:25%;
+    left:54%; width:30%; text-align:left; font-size:22px;">--</div>
+
+  <div class="c-darkorange" style="position:absolute; top:35%; left:18%;
+    width:9%; text-align:center; font-size:22px;">D</div>
+  <div class="c-darkorange" style="position:absolute; top:35%; left:28%;
+    width:24%; text-align:left; font-size:22px;">
+    <eval input="/Zapp/{zapp_index}/Output/destEteS" default="--"
+      outputFormat="script x => shortTime(x)" />
+  </div>
+  <div id="etaDest" class="c-darkorange" style="position:absolute; top:35%;
+    left:54%; width:30%; text-align:left; font-size:22px;">--</div>
+
+  <div style="position:absolute; top:45%; left:18%; width:9%;
+    text-align:center; font-size:22px;">S</div>
+  <div style="position:absolute; top:45%; left:28%; width:24%;
+    text-align:left; font-size:22px;">
+    <eval input="/Zapp/{zapp_index}/Output/speedMps" default="--"
+      outputFormat="script x => (x * 1.94384).toFixed(0) + 'kt'" />
+  </div>
+  <div class="c-yellow" style="position:absolute; top:47%; left:54%;
+    width:30%; text-align:left; font-size:25px;">
+    <eval input="/Dev/Time/LocalTime" default="--"
+      outputFormat="time ?h:mm" />
+  </div>
+
+  <!-- Where the aircraft is, as it would be read out loud. Written
+       by main.js, which already has the position as int32 degrees
+       times 1e7 and so can be exact to the hundredth of a second. -->
+  <div id="posLat" style="position:absolute; top:56%; left:0%;
+    width:100%; text-align:center; font-size:19px;">--</div>
+  <div id="posLon" style="position:absolute; top:64%; left:0%;
+    width:100%; text-align:center; font-size:19px;">--</div>
+
+  <!-- The route's name, across the dial, for a moment.
+
+       main.js writes the text, since it is the only side that has the
+       route list. Raising and lowering it is here, since setStyle
+       does not answer from main.js. A press does both at once: the
+       same handler that sends the event shows the banner and sets one
+       timer to take it away. The reference shows both, setStyle from
+       a pushButton and a lone setTimeout, and a lone one is not the
+       chain that was found to die after forty seconds.
+
+       It is declared last on purpose. The engine paints in document
+       order and does not honour z-index, so an element written
+       earlier ends up under the rows it is meant to cover. The black
+       background is what hides them, the padding is what stops the
+       rows showing between the glyphs.
+
+       It starts visible and main.js fills it on its first pass, so
+       the startup announcement is a route and not the app's own name.
+       onLoad takes it away fifteen seconds later, which is long
+       enough for a warm fix to arrive and replace the opening guess
+       with the route the position actually picked. A cold one will
+       miss that window, and the button brings the banner back.
+
+       Two lines in one element, the name and then its place in the
+       order it is offered in. main.js sends them with a newline
+       between and the engine is told to keep it, which is what
+       pre-line means. Two elements stacked was tried instead and they
+       ran into each other, since a line of 28 is worth a quarter of
+       the dial and not the twelve percent its size suggests. -->
+  <div id="routeBanner" class="bc-black"
+    style="position:absolute; top:33%; left:4%; width:92%;
+    text-align:center; font-size:28px; font-weight:bold;
+    white-space:pre-line; color:#FF9000;">--</div>
+
+  <!-- The buttons. A declared handler takes the press over from the
+       watch. The up button's click is taken, which costs the pause,
+       and the down button's long press is taken, which costs the
+       control panel. The down button's click is taken too, and gives
+       the lap back by making it itself.
+
+         down, clicked a lap, or the next route while the banner is up
+         down, held    with the banner down, show the route being
+                       followed and open a round, nearest first,
+                       ending on no route. With the banner up, the
+                       route before
+         up, clicked   the next waypoint, cutting the leg
+         up, held      the waypoint before, to fly it again
+
+       getIsEnabled on the down button, because a declared click is
+       otherwise dropped when the display was off at the press, and
+       the watch's own lap is not. A lap taken with the wrist down
+       would be lost. The reference names it enabledWhileDisplayOff,
+       an alias, but the builder turns a bare attribute into an empty
+       element, and Suunto's own templates all write the long form. -->
+  <userInput>
+    <pushButton name="up"
+      onClick="$.put('/Zapp/{zapp_index}/Event', 2, null, 'int32');"
+      onLongPress="$.put('/Zapp/{zapp_index}/Event', 3, null, 'int32');" />
+    <pushButton name="down" getIsEnabled="true"
+      onClick="clicked();"
+      onLongPressStart="holdStarted();"
+      onLongPressCancel="holdEnded();"
+      onLongPress="holdDone();" />
+  </userInput>
+</uiView>

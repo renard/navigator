@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1" creator="SkyDreamSoft" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+  <metadata>
+    <name>LFPZ senonche LFOR N</name>
+  </metadata>
+  <wpt lat="48.810278" lon="2.073333">
+    <ele>457.2</ele>
+    <magvar>2</magvar>
+    <name>LFPZ SAINT CYR L'ECOLE</name>
+    <extensions>
+      <cross/>
+      <notes/>
+    </extensions>
+  </wpt>
+  <wpt lat="48.813680768126" lon="1.9537808261759">
+    <ele>579.12</ele>
+    <magvar>1.97</magvar>
+    <name>LFPZ/W1</name>
+    <extensions>
+      <cross/>
+      <notes/>
+    </extensions>
+  </wpt>
+  <wpt lat="48.79503798068" lon="1.9189073098291">
+    <ele>579.12</ele>
+    <magvar>1.96</magvar>
+    <name>LFPZ/W2</name>
+    <extensions>
+      <cross/>
+      <notes/>
+    </extensions>
+  </wpt>
+  <wpt lat="48.779774451014" lon="1.6020545537955">
+    <ele>792.48</ele>
+    <magvar>1.87</magvar>
+    <name>Houdant</name>
+    <extensions>
+      <cross/>
+      <notes/>
+    </extensions>
+  </wpt>
+  <wpt lat="48.705833" lon="1.361389">
+    <ele>762</ele>
+    <magvar>1.8</magvar>
+    <name>LFON DREUX VERNOUILLET</name>
+    <extensions>
+      <cross/>
+      <notes/>
+    </extensions>
+  </wpt>
+  <wpt lat="48.643432366204" lon="1.1021690893038">
+    <ele>762</ele>
+    <magvar>1.73</magvar>
+    <name>Senonches</name>
+    <extensions>
+      <cross>VORD|CHW|115.2|48.480003|0.98705</cross>
+      <notes/>
+    </extensions>
+  </wpt>
+  <wpt lat="48.458889" lon="1.523889">
+    <ele>762</ele>
+    <magvar>1.86</magvar>
+    <name>LFOR CHARTRES METROPOLE</name>
+    <extensions>
+      <cross/>
+      <notes/>
+    </extensions>
+  </wpt>
+  <wpt lat="48.625689" lon="1.656567">
+    <ele>609.6</ele>
+    <magvar>1.89</magvar>
+    <name>EPR EPERNON</name>
+    <extensions>
+      <cross/>
+      <notes/>
+    </extensions>
+  </wpt>
+  <wpt lat="48.89731301956" lon="1.7363377804237">
+    <ele>609.6</ele>
+    <magvar>1.9</magvar>
+    <name>Silo LFPZ/N</name>
+    <extensions>
+      <cross>VORD|EPR|115.65|48.625689|1.656567</cross>
+      <notes/>
+    </extensions>
+  </wpt>
+  <wpt lat="48.898102885837" lon="1.8128135094671">
+    <ele>457.2</ele>
+    <magvar>1.92</magvar>
+    <name>POI Foret LFPZ/N</name>
+    <extensions>
+      <cross/>
+      <notes/>
+    </extensions>
+  </wpt>
+  <wpt lat="48.903082969463" lon="1.8565589195887">
+    <ele>457.2</ele>
+    <magvar>1.94</magvar>
+    <name>LFPN/N1 MAULNES</name>
+    <extensions>
+      <cross/>
+      <notes/>
+    </extensions>
+  </wpt>
+  <wpt lat="48.883906634071" lon="1.9837054169592">
+    <ele>457.2</ele>
+    <magvar>1.97</magvar>
+    <name>LFPZ/N2 FEUCHEROLLES</name>
+    <extensions>
+      <cross/>
+      <notes/>
+    </extensions>
+  </wpt>
+  <wpt lat="48.847674757241" lon="2.0478276568152">
+    <ele>457.2</ele>
+    <magvar>1.99</magvar>
+    <name>LFPZ/N3 SERRES</name>
+    <extensions>
+      <cross/>
+      <notes/>
+    </extensions>
+  </wpt>
+  <wpt lat="48.810278" lon="2.073333">
+    <ele>609.6</ele>
+    <magvar>2</magvar>
+    <name>LFPZ SAINT CYR L'ECOLE</name>
+    <extensions>
+      <cross/>
+      <notes/>
+    </extensions>
+  </wpt>
+  <rte>
+    <rtept lat="48.810278" lon="2.073333">
+      <ele>457.2</ele>
+      <magvar>2</magvar>
+      <name>LFPZ SAINT CYR L'ECOLE</name>
+      <extensions>
+        <cross/>
+        <notes/>
+      </extensions>
+    </rtept>
+    <rtept lat="48.813680768126" lon="1.9537808261759">
+      <ele>579.12</ele>
+      <magvar>1.97</magvar>
+      <name>LFPZ/W1</name>
+      <extensions>
+        <cross/>
+        <notes/>
+      </extensions>
+    </rtept>
+    <rtept lat="48.79503798068" lon="1.9189073098291">
+      <ele>579.12</ele>
+      <magvar>1.96</magvar>
+      <name>LFPZ/W2</name>
+      <extensions>
+        <cross/>
+        <notes/>
+      </extensions>
+    </rtept>
+    <rtept lat="48.779774451014" lon="1.6020545537955">
+      <ele>792.48</ele>
+      <magvar>1.87</magvar>
+      <name>Houdant</name>
+      <extensions>
+        <cross/>
+        <notes/>
+      </extensions>
+    </rtept>
+    <rtept lat="48.705833" lon="1.361389">
+      <ele>762</ele>
+      <magvar>1.8</magvar>
+      <name>LFON DREUX VERNOUILLET</name>
+      <extensions>
+        <cross/>
+        <notes/>
+      </extensions>
+    </rtept>
+    <rtept lat="48.643432366204" lon="1.1021690893038">
+      <ele>762</ele>
+      <magvar>1.73</magvar>
+      <name>Senonches</name>
+      <extensions>
+        <cross>VORD|CHW|115.2|48.480003|0.98705</cross>
+        <notes/>
+      </extensions>
+    </rtept>
+    <rtept lat="48.458889" lon="1.523889">
+      <ele>762</ele>
+      <magvar>1.86</magvar>
+      <name>LFOR CHARTRES METROPOLE</name>
+      <extensions>
+        <cross/>
+        <notes/>
+      </extensions>
+    </rtept>
+    <rtept lat="48.625689" lon="1.656567">
+      <ele>609.6</ele>
+      <magvar>1.89</magvar>
+      <name>EPR EPERNON</name>
+      <extensions>
+        <cross/>
+        <notes/>
+      </extensions>
+    </rtept>
+    <rtept lat="48.89731301956" lon="1.7363377804237">
+      <ele>609.6</ele>
+      <magvar>1.9</magvar>
+      <name>Silo LFPZ/N</name>
+      <extensions>
+        <cross>VORD|EPR|115.65|48.625689|1.656567</cross>
+        <notes/>
+      </extensions>
+    </rtept>
+    <rtept lat="48.898102885837" lon="1.8128135094671">
+      <ele>457.2</ele>
+      <magvar>1.92</magvar>
+      <name>POI Foret LFPZ/N</name>
+      <extensions>
+        <cross/>
+        <notes/>
+      </extensions>
+    </rtept>
+    <rtept lat="48.903082969463" lon="1.8565589195887">
+      <ele>457.2</ele>
+      <magvar>1.94</magvar>
+      <name>LFPN/N1 MAULNES</name>
+      <extensions>
+        <cross/>
+        <notes/>
+      </extensions>
+    </rtept>
+    <rtept lat="48.883906634071" lon="1.9837054169592">
+      <ele>457.2</ele>
+      <magvar>1.97</magvar>
+      <name>LFPZ/N2 FEUCHEROLLES</name>
+      <extensions>
+        <cross/>
+        <notes/>
+      </extensions>
+    </rtept>
+    <rtept lat="48.847674757241" lon="2.0478276568152">
+      <ele>457.2</ele>
+      <magvar>1.99</magvar>
+      <name>LFPZ/N3 SERRES</name>
+      <extensions>
+        <cross/>
+        <notes/>
+      </extensions>
+    </rtept>
+    <rtept lat="48.810278" lon="2.073333">
+      <ele>609.6</ele>
+      <magvar>2</magvar>
+      <name>LFPZ SAINT CYR L'ECOLE</name>
+      <extensions>
+        <cross/>
+        <notes/>
+      </extensions>
+    </rtept>
+  </rte>
+</gpx>

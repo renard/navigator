@@ -1,0 +1,113 @@
+{
+  "name": "Navigator",
+  "version": "0.1",
+  "author": "Sebastien Gross",
+  "description": "Waypoint navigation that keeps working off route",
+  "type": "feature",
+  "usage": "workout",
+  "modificationTime": 1789000000,
+  "in": [
+    {
+      "name": "lat",
+      "source": "Fusion/Location/GeoCoordinates.latitude",
+      "type": "subscribe"
+    },
+    {
+      "name": "lon",
+      "source": "Fusion/Location/GeoCoordinates.longitude",
+      "type": "subscribe"
+    },
+    {
+      "name": "readiness",
+      "source": "Fusion/Location/Readiness",
+      "type": "subscribe"
+    },
+    {
+      "name": "activityTime",
+      "source": "Activity/Activity/-1/Duration/Current",
+      "type": "subscribe"
+    },
+    {
+      "name": "wpDist",
+      "source": "Navigation/Poi/Active/Distance",
+      "type": "subscribe"
+    },
+    {
+      "name": "closest",
+      "source": "Navigation/Routes/NavigatedRoute/ClosestPoint",
+      "type": "subscribe"
+    }
+  ],
+  "out": [
+    {
+      "name": "legDistM"
+    },
+    {
+      "name": "legBearingRad"
+    },
+    {
+      "name": "deviationRad"
+    },
+    {
+      "name": "trackRad"
+    },
+    {
+      "name": "speedMps"
+    },
+    {
+      "name": "legEteS"
+    },
+    {
+      "name": "fixLat",
+      "log": true,
+      "shownName": "Fix latitude"
+    },
+    {
+      "name": "fixLon",
+      "log": true,
+      "shownName": "Fix longitude"
+    },
+    {
+      "name": "nativeDistM",
+      "log": true,
+      "shownName": "Native WP distance"
+    },
+    {
+      "name": "bearingSigmaRad",
+      "log": true,
+      "shownName": "Bearing spread"
+    },
+    {
+      "name": "closestIdx",
+      "log": true,
+      "shownName": "Closest point"
+    },
+    {
+      "name": "routeWp",
+      "log": true,
+      "shownName": "Route and waypoint"
+    },
+    {
+      "name": "status"
+    },
+    {
+      "name": "destDistM"
+    },
+    {
+      "name": "destEteS"
+    }
+  ],
+  "template": [
+    {
+      "name": "nav.html"
+    }
+  ],
+  "settings": [
+    {
+      "shownName": "Learned route",
+      "path": "route",
+      "type": "string",
+      "maxLength": 2048
+    }
+  ]
+}

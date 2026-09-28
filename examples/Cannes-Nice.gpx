@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1" creator="SkyDreamSoft" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+  <metadata>
+    <name>Cannes-Nice</name>
+  </metadata>
+  <wpt lat="43.549309350798" lon="7.0149916365132">
+    <ele>457.2</ele>
+    <magvar>3.17</magvar>
+    <name>Cannes</name>
+    <extensions>
+      <cross/>
+      <notes/>
+    </extensions>
+  </wpt>
+  <wpt lat="43.532002647535" lon="7.0373911857494">
+    <ele>457.2</ele>
+    <magvar>3.17</magvar>
+    <name>Cap Croisette</name>
+    <extensions>
+      <cross/>
+      <notes/>
+    </extensions>
+  </wpt>
+  <wpt lat="43.542368151405" lon="7.1364217649314">
+    <ele>457.2</ele>
+    <magvar>3.19</magvar>
+    <name>Antibes</name>
+    <extensions>
+      <cross/>
+      <notes/>
+    </extensions>
+  </wpt>
+  <wpt lat="43.689945719282" lon="7.2900637398309">
+    <ele>457.2</ele>
+    <magvar>3.23</magvar>
+    <name>Nice</name>
+    <extensions>
+      <cross/>
+      <notes/>
+    </extensions>
+  </wpt>
+  <wpt lat="43.697375898216" lon="7.285311710625">
+    <ele>0</ele>
+    <magvar>3.23</magvar>
+    <name>Port</name>
+    <extensions>
+      <cross/>
+      <notes/>
+    </extensions>
+  </wpt>
+  <rte>
+    <rtept lat="43.549309350798" lon="7.0149916365132">
+      <ele>457.2</ele>
+      <magvar>3.17</magvar>
+      <name>Cannes</name>
+      <extensions>
+        <cross/>
+        <notes/>
+      </extensions>
+    </rtept>
+    <rtept lat="43.532002647535" lon="7.0373911857494">
+      <ele>457.2</ele>
+      <magvar>3.17</magvar>
+      <name>Cap Croisette</name>
+      <extensions>
+        <cross/>
+        <notes/>
+      </extensions>
+    </rtept>
+    <rtept lat="43.542368151405" lon="7.1364217649314">
+      <ele>457.2</ele>
+      <magvar>3.19</magvar>
+      <name>Antibes</name>
+      <extensions>
+        <cross/>
+        <notes/>
+      </extensions>
+    </rtept>
+    <rtept lat="43.689945719282" lon="7.2900637398309">
+      <ele>457.2</ele>
+      <magvar>3.23</magvar>
+      <name>Nice</name>
+      <extensions>
+        <cross/>
+        <notes/>
+      </extensions>
+    </rtept>
+    <rtept lat="43.697375898216" lon="7.285311710625">
+      <ele>0</ele>
+      <magvar>3.23</magvar>
+      <name>Port</name>
+      <extensions>
+        <cross/>
+        <notes/>
+      </extensions>
+    </rtept>
+  </rte>
+</gpx>

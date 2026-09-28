@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Navigator, prepare your routes</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <p class="crumb"><a href="index.html">Navigator</a></p>
+  <h1>Prepare your routes</h1>
+  <p>Turn the GPX routes of your planner into what Navigator carries
+    on the watch.</p>
+</header>
+
+<main>
+
+  <section id="loading">
+    <p id="loadingText">Loading the converter, about a megabyte...</p>
+  </section>
+
+  <section id="drop" tabindex="0">
+    <p><strong>Drop GPX files here</strong>, or</p>
+    <p><input type="file" id="pick" accept=".gpx,application/gpx+xml"
+              multiple></p>
+    <p class="hint">Several routes can go in at once. They are
+      converted here, in this tab.</p>
+  </section>
+
+  <section id="busy" hidden><p>Converting...</p></section>
+
+  <section id="problem" hidden>
+    <h2>Refused</h2>
+    <ul id="refused"></ul>
+  </section>
+
+  <section id="result" hidden>
+    <h2>Routes</h2>
+    <table>
+      <thead>
+        <tr><th>Name<th>Length<th>Waypoints<th>Bytes</tr>
+      </thead>
+      <tbody id="routes"></tbody>
+    </table>
+
+    <div id="notes"></div>
+
+    <h2>The string</h2>
+    <p id="size"></p>
+    <textarea id="packed" readonly rows="6" spellcheck="false"></textarea>
+    <p>
+      <button id="copy" type="button">Copy</button>
+      <button id="download" type="button">Download data.json</button>
+    </p>
+    <p class="hint">Paste it into the feature's route setting, or keep
+      the data file to build the app with.</p>
+  </section>
+
+  <section id="format">
+    <h2>The format, for the curious</h2>
+    <p>The converter is only a convenience. What it produces is plain
+      text, and can be written by hand:</p>
+    <pre>name:lat,lon,name;lat,lon,name;...|name:lat,lon,name;...</pre>
+    <ul>
+      <li><strong>Routes</strong> are separated by <code>|</code>. Each
+        one is its name, a colon, then its waypoints in the order they
+        are to be reached, separated by <code>;</code>.</li>
+      <li><strong>The first name</strong> of each route, the one before
+        the colon, is the route's own name. It is what the watch shows
+        when you choose a route, so it is what tells your routes
+        apart. Every other name belongs to a waypoint.</li>
+      <li><strong>A waypoint</strong> is a latitude, a longitude and a
+        name, separated by commas. Coordinates are decimal degrees
+        times 100000, rounded to a whole number, north and east
+        positive, south and west negative: 48.81028 N, 2.07333 E is
+        written <code>4881028,207333</code>. That is about a meter.
+        </li>
+      <li><strong>Names</strong>, of routes and of waypoints alike, use
+        letters without accents, digits, spaces and
+        <code>- _ . ' ( ) / +</code>. The four separators
+        <code>| : ; ,</code> can never appear in a name, since they
+        would split it. The watch's name row holds 14 characters, a
+        longer name wraps. A waypoint without a name shows as
+        <code>?</code>.</li>
+      <li><strong>A route</strong> needs at least two waypoints. It may
+        start and end at the same place, as a round trip does.</li>
+      <li><strong>The order of the routes</strong> settles ties: when
+        several routes start from the same place, the first one is
+        proposed first. Put your main route before its
+        alternatives.</li>
+      <li><strong>The whole string</strong>, every route included,
+        holds at most 2048 characters.</li>
+    </ul>
+    <p>A route of two waypoints:</p>
+    <pre>LFPZ-LFXU:4881028,207333,LFPZ SAINT CYR;4899861,194167,LFXU LES MUREA</pre>
+    <p>To build the app with it, <code>data.json</code> holds the
+      string under the key <code>route</code>, padded with spaces to
+      exactly 2048 characters. The watch sizes the slot from what the
+      file holds, so a shorter value would leave no room for a longer
+      route set later from the phone:</p>
+    <pre>{"route": "LFPZ-LFXU:4881028,207333,LFPZ SAINT CYR;...      "}</pre>
+  </section>
+
+  <section id="about">
+    <h2>What this does with your files</h2>
+    <ul>
+      <li><strong>Your file never leaves this machine.</strong> There
+        is nowhere for it to go: this page is a static file and the
+        conversion runs in the tab. Turn off the network after the page
+        has loaded and it still works.</li>
+      <li>Nothing is stored either, here or anywhere. Reload the page
+        and it has forgotten.</li>
+      <li>This page and the command line tool share the same code, so
+        both produce exactly the same result from the same file.</li>
+      <li>The XML is read with document type declarations refused
+        outright, nesting and point counts capped, and coordinates
+        checked to be on Earth.</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <p>AGPL. The watch app and the source of this converter are in the
+    same repository. Navigator is an independent project, not made or
+    endorsed by Suunto.</p>
+</footer>
+
+<script src="wasm_exec.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

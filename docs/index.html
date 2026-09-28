@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="Navigator turns a Suunto watch with
+  GPS and SuuntoPlus into a navigator's instrument: bearing, distance
+  and time to every waypoint of your route, wherever you are.">
+<title>Navigator, waypoint guidance for Suunto watches</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="product">
+
+<header class="hero">
+  <div class="pitch">
+    <p class="kicker">A SuuntoPlus app for navigators</p>
+    <h1>Your next waypoint,<br>wherever you are.</h1>
+    <p class="lead">Navigator turns a Suunto watch with GPS and
+      SuuntoPlus into a navigation instrument on your wrist. Bearing,
+      distance and time to every waypoint of your route, on the line
+      or well away from it. In the air, at sea or on foot.</p>
+    <p class="actions">
+      <a class="button primary" href="convert.html">Prepare your
+        routes</a>
+      <a class="button" href="#use">How to use it</a>
+    </p>
+  </div>
+
+  <!-- The screen as the watch draws it, from nav.html: a 466 pixel
+       dial, the same rows at the same heights, and text 1.85 times
+       its written size, centred in its line box, as the watch draws
+       it. The watch's own fonts are Suunto's and not served here,
+       so the faces are the system's. -->
+  <figure class="dial">
+    <svg viewBox="-24 -24 514 514" role="img"
+         aria-label="The Navigator screen on the watch">
+      <circle cx="233" cy="233" r="245" fill="#2a2b2e"/>
+      <circle cx="233" cy="233" r="233" fill="#000"/>
+      <circle cx="233" cy="233" r="211" fill="none" stroke="#444"
+              stroke-width="4"/>
+      <polygon points="200.9,4.2 221.0,39.8 191.3,44.0"
+               fill="#00e000"/>
+      <g font-family="system-ui, sans-serif" font-size="40.7">
+        <g fill="#3FF5EB">
+          <text x="233" y="55.1" font-size="35.1"
+                text-anchor="middle">LFPZ/W2</text>
+          <text x="233" y="107.7" font-size="51.8" font-weight="600"
+                text-anchor="middle">3.4 NM</text>
+          <text x="104.9" y="153.7" text-anchor="middle">W</text>
+          <text x="130.5" y="153.7">2:05</text>
+          <text x="251.6" y="153.7">13:26</text>
+        </g>
+        <g fill="#F57F3F">
+          <text x="104.9" y="200.3" text-anchor="middle">D</text>
+          <text x="130.5" y="200.3">1:12</text>
+          <text x="251.6" y="200.3">14:38</text>
+        </g>
+        <g fill="#fff">
+          <text x="104.9" y="246.9" text-anchor="middle">S</text>
+          <text x="130.5" y="246.9">98kt</text>
+          <text x="233" y="292.8" font-size="35.1"
+                text-anchor="middle">48&#176;47'42.13"N</text>
+          <text x="233" y="330" font-size="35.1"
+                text-anchor="middle">001&#176;55'08.02"E</text>
+        </g>
+        <text x="251.6" y="255.7" fill="#FFF019" font-size="46.2"
+              font-weight="bold">13:24</text>
+      </g>
+    </svg>
+    <figcaption>Heading for W2, 3.4 NM ahead, marker at the top: on
+      course.</figcaption>
+  </figure>
+</header>
+
+<main>
+
+  <section id="brings">
+    <h2>What it brings</h2>
+    <div class="cards">
+      <article>
+        <h3>Guidance that follows you</h3>
+        <p>Few routes are followed on the exact line. Wind or current
+          sets you off it, a cloud, a headland or a closed path sends
+          you around. Give Navigator your route and it knows every
+          waypoint exactly, so the bearing and distance to the next one
+          stay on the screen wherever you are.</p>
+      </article>
+      <article>
+        <h3>A navigator's numbers</h3>
+        <p>Nautical miles and knots, the units of the air and the sea.
+          Time to run and time of arrival, for the next waypoint and
+          for the end of the route. Your position in degrees, minutes
+          and seconds, ready to read out on the radio.</p>
+      </article>
+      <article>
+        <h3>One glance to stay on course</h3>
+        <p>A marker on the bezel shows where the waypoint is against
+          your track over the ground. Keep it at the top and you are
+          on your way. Green within ten degrees, red beyond.</p>
+      </article>
+      <article>
+        <h3>Built on the watch's navigation</h3>
+        <p>Start your route from the watch's own Navigation menu, as
+          usual. Navigator reads the watch's distance to the next
+          waypoint, accurate to about a meter, and extends it to the
+          whole route, on the line and off it.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="use">
+    <h2>How to use it</h2>
+    <ol class="steps">
+      <li>
+        <h3>Prepare, if you wish</h3>
+        <p>Optional, and worth it. Without it, Navigator relies on the
+          watch's own navigation and works out each waypoint as you
+          head for it along the route. With your routes prepared, every
+          waypoint is exact from the start, on the line or off it.
+          Export your route as GPX from your planner and drop it on
+          the <a href="convert.html">converter</a>, with a few others
+          if you like. The conversion runs in your browser, and the
+          file never leaves your machine.</p>
+      </li>
+      <li>
+        <h3>Load</h3>
+        <p>Import your GPX into the Suunto app and sync, then install
+          Navigator, with the routes you prepared if any, and add it as
+          a data screen to a GPS sport mode.</p>
+      </li>
+      <li>
+        <h3>Go</h3>
+        <p>Start the activity and start navigating your route from the
+          watch's Navigation menu. Navigator proposes the route nearest
+          to you and shows its name. Set off, and press lap at each
+          waypoint to keep your leg times.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section id="buttons">
+    <h2>Three buttons, no menu</h2>
+    <dl class="keys">
+      <dt>Down, click</dt>
+      <dd>A lap, as always. Your leg times stay in the activity.</dd>
+      <dt>Down, hold</dt>
+      <dd>Shows the route you follow. While its name is up, click for
+        the next route, nearest first, hold for the one before. The
+        last choice, <code>--</code>, follows the watch's navigation
+        alone.</dd>
+      <dt>Up, click</dt>
+      <dd>Skip to the next waypoint, for a leg you cut short.</dd>
+      <dt>Up, hold</dt>
+      <dd>Back to the waypoint before, to go through it again.</dd>
+    </dl>
+    <p class="hint">Navigator follows the leg you are nearest to, so a
+      skipped waypoint or a change of route is picked up on its own.
+      The buttons are there when you know better.</p>
+  </section>
+
+  <section id="know">
+    <h2>Good to know</h2>
+    <ul>
+      <li>Navigator is a navigation aid. It does not replace your
+        chart, your compass or your judgment, and it is not certified
+        for anything.</li>
+      <li>It has been used in the air and on foot. It has not been
+        tried at sea yet.</li>
+      <li>It has been tested on a Suunto Ocean, and its screen is laid
+        out for that watch's round 466 pixel display. On another
+        SuuntoPlus watch the screen may need adjusting.</li>
+      <li>Where your route crosses itself, the waypoint name can
+        switch to the other leg for a few seconds as you pass over the
+        crossing.</li>
+      <li>Bearings are true, not magnetic. The difference is the
+        magnetic variation where you are.</li>
+      <li>For now Navigator is installed from its source, with the
+        SuuntoPlus Editor for Visual Studio Code. The repository
+        explains how.</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <p>AGPL. Navigator is an independent project, not made or endorsed
+    by Suunto. Suunto, SuuntoPlus and the names of Suunto watches
+    are trademarks of their owner.</p>
+</footer>
+
+</body>
+</html>

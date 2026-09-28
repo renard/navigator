@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1" creator="SkyDreamSoft" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+  <metadata>
+    <name>Chateaux loire</name>
+  </metadata>
+  <wpt lat="48.810278" lon="2.073333">
+    <ele>609.6</ele>
+    <magvar>2</magvar>
+    <name>LFPZ SAINT CYR L'ECOLE</name>
+    <extensions>
+      <cross/>
+      <notes/>
+    </extensions>
+  </wpt>
+  <wpt lat="48.813680768126" lon="1.9537808261759">
+    <ele>609.6</ele>
+    <magvar>1.96</magvar>
+    <name>LFPZ LFPZ/W1</name>
+    <extensions>
+      <cross/>
+      <notes/>
+    </extensions>
+  </wpt>
+  <wpt lat="48.79503798068" lon="1.9189073098291">
+    <ele>609.6</ele>
+    <magvar>1.96</magvar>
+    <name>LFPZ LFPZ/W2</name>
+    <extensions>
+      <cross/>
+      <notes/>
+    </extensions>
+  </wpt>
+  <wpt lat="48.778328625197" lon="1.6853836862861">
+    <ele>609.6</ele>
+    <magvar>1.89</magvar>
+    <name>NAV Étangs d’Yveline</name>
+    <extensions>
+      <cross>VORD|EPR|115.65|48.625689|1.656567</cross>
+      <notes/>
+    </extensions>
+  </wpt>
+  <wpt lat="48.625689" lon="1.656567">
+    <ele>914.4</ele>
+    <magvar>1.89</magvar>
+    <name>EPR EPERNON</name>
+    <extensions>
+      <cross/>
+      <notes/>
+    </extensions>
+  </wpt>
+  <wpt lat="47.767660645676" lon="2.3753242630984">
+    <ele>914.4</ele>
+    <magvar>2.11</magvar>
+    <name>POI Sully sur Loire</name>
+    <extensions>
+      <cross>DME|AMB|113.7|47.428903|1.064431</cross>
+      <notes/>
+    </extensions>
+  </wpt>
+  <wpt lat="47.616048965983" lon="1.5169526263716">
+    <ele>914.4</ele>
+    <magvar>1.88</magvar>
+    <name>POI Chambord</name>
+    <extensions>
+      <cross>VORD|BCY|117.35|47.985306|1.755556</cross>
+      <notes/>
+    </extensions>
+  </wpt>
+  <wpt lat="47.5002462" lon="1.4580240470814">
+    <ele>944.88</ele>
+    <magvar>1.87</magvar>
+    <name>POI Cheverny</name>
+    <extensions>
+      <cross>VORD|CAD|115.95|48.059153|1.387072</cross>
+      <notes/>
+    </extensions>
+  </wpt>
+  <wpt lat="47.479115489888" lon="1.1819692909311">
+    <ele>914.4</ele>
+    <magvar>1.79</magvar>
+    <name>POI Chaumond</name>
+    <extensions>
+      <cross>VORD|CHX|108.65|46.871206|1.741872</cross>
+      <notes/>
+    </extensions>
+  </wpt>
+  <wpt lat="47.324954319814" lon="1.0702988740672">
+    <ele>914.4</ele>
+    <magvar>1.76</magvar>
+    <name>POI Chenonceau</name>
+    <extensions>
+      <cross/>
+      <notes/>
+    </extensions>
+  </wpt>
+  <wpt lat="47.340556" lon="0.941111">
+    <ele>914.4</ele>
+    <magvar>1.73</magvar>
+    <name>LFEF AMBOISE DIERRE</name>
+    <extensions>
+      <cross/>
+      <notes/>
+    </extensions>
+  </wpt>
+  <wpt lat="48.057875" lon="1.379722">
+    <ele>914.4</ele>
+    <magvar>1.83</magvar>
+    <name>LFOC CHATEAUDUN</name>
+    <extensions>
+      <cross/>
+      <notes/>
+    </extensions>
+  </wpt>
+  <wpt lat="48.458889" lon="1.523889">
+    <ele>914.4</ele>
+    <magvar>1.85</magvar>
+    <name>LFOR CHARTRES METROPOLE</name>
+    <extensions>
+      <cross/>
+      <notes/>
+    </extensions>
+  </wpt>
+  <wpt lat="48.625689" lon="1.656567">
+    <ele>609.6</ele>
+    <magvar>1.89</magvar>
+    <name>EPR EPERNON</name>
+    <extensions>
+      <cross/>
+      <notes/>
+    </extensions>
+  </wpt>
+  <wpt lat="48.89731301956" lon="1.7363377804237">
+    <ele>609.6</ele>
+    <magvar>1.9</magvar>
+    <name>POI Silo LFPZ/N</name>
+    <extensions>
+      <cross/>
+      <notes/>
+    </extensions>
+  </wpt>
+  <wpt lat="48.903082969463" lon="1.8565589195887">
+    <ele>609.6</ele>
+    <magvar>1.93</magvar>
+    <name>LFPZ LFPN/N1</name>
+    <extensions>
+      <cross/>
+      <notes/>
+    </extensions>
+  </wpt>
+  <wpt lat="48.883906634071" lon="1.9837054169592">
+    <ele>609.6</ele>
+    <magvar>1.97</magvar>
+    <name>LFPZ LFPZ/N2</name>
+    <extensions>
+      <cross/>
+      <notes/>
+    </extensions>
+  </wpt>
+  <wpt lat="48.847674757241" lon="2.0478276568152">
+    <ele>609.6</ele>
+    <magvar>1.99</magvar>
+    <name>LFPZ LFPZ/N3</name>
+    <extensions>
+      <cross/>
+      <notes/>
+    </extensions>
+  </wpt>
+  <wpt lat="48.810278" lon="2.073333">
+    <ele>609.6</ele>
+    <magvar>2</magvar>
+    <name>LFPZ SAINT CYR L'ECOLE</name>
+    <extensions>
+      <cross/>
+      <notes/>
+    </extensions>
+  </wpt>
+  <wpt lat="48.998611" lon="1.941667">
+    <ele>0</ele>
+    <magvar>1.96</magvar>
+    <name>LFXU LES MUREAUX</name>
+    <extensions>
+      <cross/>
+      <notes/>
+    </extensions>
+  </wpt>
+  <rte>
+    <rtept lat="48.810278" lon="2.073333">
+      <ele>609.6</ele>
+      <magvar>2</magvar>
+      <name>LFPZ SAINT CYR L'ECOLE</name>
+      <extensions>
+        <cross/>
+        <notes/>
+      </extensions>
+    </rtept>
+    <rtept lat="48.813680768126" lon="1.9537808261759">
+      <ele>609.6</ele>
+      <magvar>1.96</magvar>
+      <name>LFPZ LFPZ/W1</name>
+      <extensions>
+        <cross/>
+        <notes/>
+      </extensions>
+    </rtept>
+    <rtept lat="48.79503798068" lon="1.9189073098291">
+      <ele>609.6</ele>
+      <magvar>1.96</magvar>
+      <name>LFPZ LFPZ/W2</name>
+      <extensions>
+        <cross/>
+        <notes/>
+      </extensions>
+    </rtept>
+    <rtept lat="48.778328625197" lon="1.6853836862861">
+      <ele>609.6</ele>
+      <magvar>1.89</magvar>
+      <name>NAV Étangs d’Yveline</name>
+      <extensions>
+        <cross>VORD|EPR|115.65|48.625689|1.656567</cross>
+        <notes/>
+      </extensions>
+    </rtept>
+    <rtept lat="48.625689" lon="1.656567">
+      <ele>914.4</ele>
+      <magvar>1.89</magvar>
+      <name>EPR EPERNON</name>
+      <extensions>
+        <cross/>
+        <notes/>
+      </extensions>
+    </rtept>
+    <rtept lat="47.767660645676" lon="2.3753242630984">
+      <ele>914.4</ele>
+      <magvar>2.11</magvar>
+      <name>POI Sully sur Loire</name>
+      <extensions>
+        <cross>DME|AMB|113.7|47.428903|1.064431</cross>
+        <notes/>
+      </extensions>
+    </rtept>
+    <rtept lat="47.616048965983" lon="1.5169526263716">
+      <ele>914.4</ele>
+      <magvar>1.88</magvar>
+      <name>POI Chambord</name>
+      <extensions>
+        <cross>VORD|BCY|117.35|47.985306|1.755556</cross>
+        <notes/>
+      </extensions>
+    </rtept>
+    <rtept lat="47.5002462" lon="1.4580240470814">
+      <ele>944.88</ele>
+      <magvar>1.87</magvar>
+      <name>POI Cheverny</name>
+      <extensions>
+        <cross>VORD|CAD|115.95|48.059153|1.387072</cross>
+        <notes/>
+      </extensions>
+    </rtept>
+    <rtept lat="47.479115489888" lon="1.1819692909311">
+      <ele>914.4</ele>
+      <magvar>1.79</magvar>
+      <name>POI Chaumond</name>
+      <extensions>
+        <cross>VORD|CHX|108.65|46.871206|1.741872</cross>
+        <notes/>
+      </extensions>
+    </rtept>
+    <rtept lat="47.324954319814" lon="1.0702988740672">
+      <ele>914.4</ele>
+      <magvar>1.76</magvar>
+      <name>POI Chenonceau</name>
+      <extensions>
+        <cross/>
+        <notes/>
+      </extensions>
+    </rtept>
+    <rtept lat="47.340556" lon="0.941111">
+      <ele>914.4</ele>
+      <magvar>1.73</magvar>
+      <name>LFEF AMBOISE DIERRE</name>
+      <extensions>
+        <cross/>
+        <notes/>
+      </extensions>
+    </rtept>
+    <rtept lat="48.057875" lon="1.379722">
+      <ele>914.4</ele>
+      <magvar>1.83</magvar>
+      <name>LFOC CHATEAUDUN</name>
+      <extensions>
+        <cross/>
+        <notes/>
+      </extensions>
+    </rtept>
+    <rtept lat="48.458889" lon="1.523889">
+      <ele>914.4</ele>
+      <magvar>1.85</magvar>
+      <name>LFOR CHARTRES METROPOLE</name>
+      <extensions>
+        <cross/>
+        <notes/>
+      </extensions>
+    </rtept>
+    <rtept lat="48.625689" lon="1.656567">
+      <ele>609.6</ele>
+      <magvar>1.89</magvar>
+      <name>EPR EPERNON</name>
+      <extensions>
+        <cross/>
+        <notes/>
+      </extensions>
+    </rtept>
+    <rtept lat="48.89731301956" lon="1.7363377804237">
+      <ele>609.6</ele>
+      <magvar>1.9</magvar>
+      <name>POI Silo LFPZ/N</name>
+      <extensions>
+        <cross/>
+        <notes/>
+      </extensions>
+    </rtept>
+    <rtept lat="48.903082969463" lon="1.8565589195887">
+      <ele>609.6</ele>
+      <magvar>1.93</magvar>
+      <name>LFPZ LFPN/N1</name>
+      <extensions>
+        <cross/>
+        <notes/>
+      </extensions>
+    </rtept>
+    <rtept lat="48.883906634071" lon="1.9837054169592">
+      <ele>609.6</ele>
+      <magvar>1.97</magvar>
+      <name>LFPZ LFPZ/N2</name>
+      <extensions>
+        <cross/>
+        <notes/>
+      </extensions>
+    </rtept>
+    <rtept lat="48.847674757241" lon="2.0478276568152">
+      <ele>609.6</ele>
+      <magvar>1.99</magvar>
+      <name>LFPZ LFPZ/N3</name>
+      <extensions>
+        <cross/>
+        <notes/>
+      </extensions>
+    </rtept>
+    <rtept lat="48.810278" lon="2.073333">
+      <ele>609.6</ele>
+      <magvar>2</magvar>
+      <name>LFPZ SAINT CYR L'ECOLE</name>
+      <extensions>
+        <cross/>
+        <notes/>
+      </extensions>
+    </rtept>
+    <rtept lat="48.998611" lon="1.941667">
+      <ele>0</ele>
+      <magvar>1.96</magvar>
+      <name>LFXU LES MUREAUX</name>
+      <extensions>
+        <cross/>
+        <notes/>
+      </extensions>
+    </rtept>
+  </rte>
+</gpx>

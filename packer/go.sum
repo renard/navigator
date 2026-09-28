@@ -1,0 +1,4 @@
+github.com/alecthomas/kong v1.16.1 h1:ixhCt93XkJ98kGposQ54+bl0IK6XwqB40AsMynU7Z8E=
+github.com/alecthomas/kong v1.16.1/go.mod h1:wrlbXem1CWqUV5Vbmss5ISYhsVPkBb1Yo7YKJghju2I=
+github.com/renard/cwlog v0.0.0-20260428212002-7d96613d4b34 h1:ZL3MrDBx1viyp/c8PfLqDmtTNR0DcEilltby4XJc7SM=
+github.com/renard/cwlog v0.0.0-20260428212002-7d96613d4b34/go.mod h1:caPLTVwKbQschSFMN1a2msA/EsG2nS3zn5FoIsY+b50=

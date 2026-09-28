@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" version="1.1" creator="navigator">
+  <metadata>
+    <name>LFPZ-LFXU</name>
+  </metadata>
+  <wpt lat="48.810278" lon="2.073333">
+    <name>LFPZ SAINT CYR L'ECOLE</name>
+  </wpt>
+  <wpt lat="48.998611" lon="1.941667">
+    <name>LFXU LES MUREAUX</name>
+  </wpt>
+  <rte>
+    <name>LFPZ-LFXU</name>
+    <rtept lat="48.810278" lon="2.073333">
+      <name>LFPZ SAINT CYR L'ECOLE</name>
+    </rtept>
+    <rtept lat="48.998611" lon="1.941667">
+      <name>LFXU LES MUREAUX</name>
+    </rtept>
+  </rte>
+</gpx>
