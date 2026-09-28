@@ -6,8 +6,34 @@ are. Developed and tested on a Suunto Ocean, first for flying under
 visual flight rules, where the next waypoint and the time to it are
 the whole job, and used on foot as well.
 
-The presentation page is `docs/index.html`, which is what GitHub
-Pages serves.
+The presentation page is at <https://renard.github.io/navigator/>,
+served by GitHub Pages from `docs/`.
+
+<p align="center">
+  <img src="docs/images/02-on-track-navigation.jpg" width="360"
+       alt="On course for Houdant, 1.1 NM ahead, green marker at the top">
+</p>
+
+<p align="center">
+  <img src="docs/images/01-route-selection.jpg" width="240"
+       alt="The route banner, LFPZ senonche 1 of 6">
+  <img src="docs/images/03-off-track-navigation.jpg" width="240"
+       alt="Dreux 10.2 NM away, red marker to the left of the top">
+  <img src="docs/images/04-off-track-navigation-high-offset.jpg"
+       width="240" alt="Chartres 17.4 NM away, red marker far right">
+</p>
+
+- On course: the marker is at the top and green, Houdant 1.1 NM ahead
+  and 28 seconds away.
+- Choosing a route: hold the down button and the route you follow
+  shows, here the first of six, then click for the next, nearest
+  first.
+- Off course: the marker shows where the waypoint is, red beyond ten
+  degrees. Turn until it is back at the top.
+- Well away from the line, the waypoint still has its bearing, its
+  distance and its times.
+
+Screens from the SuuntoPlus simulator.
 
 ## What it is
 

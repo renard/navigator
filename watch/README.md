@@ -8,6 +8,11 @@ into a navigator's screen: a ring on the bezel whose marker shows
 where the next waypoint is relative to the current ground track, with
 distance, bearing, ground speed and time to run.
 
+<p align="center">
+  <img src="../docs/images/02-on-track-navigation.jpg" width="320"
+       alt="On course for Houdant, 1.1 NM ahead, green marker at the top">
+</p>
+
 The pilot builds the route in the Suunto app and starts navigating it
 from the sport mode's own Navigation menu, as usual. The app also
 carries its own copy of the route, packed into a string by the
